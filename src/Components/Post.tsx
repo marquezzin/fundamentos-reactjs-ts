@@ -3,7 +3,7 @@ import { ptBR } from "date-fns/locale";
 import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
-import { useState } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 
 
 interface  Author{
@@ -12,10 +12,15 @@ interface  Author{
   avatarUrl:string;
 }
 
+interface Content{
+  type: 'paragraph' | 'link';
+  content: string;
+}
+
 interface PostProps{
   author:Author;
   publishedAt: Date;
-  content: string;
+  content:Content[] ;
 }
 
 export function Post({ author, publishedAt , content}:PostProps) {
@@ -45,7 +50,7 @@ const [newCommentText,setNewCommentText] = useState("")
   });
 
 
-  function handleCreateNewComment() {
+  function handleCreateNewComment(event:FormEvent) {
     event.preventDefault() //nao ter redirecionamento
 
     // newCommentText armazenando o conteudo da textarea
@@ -55,14 +60,14 @@ const [newCommentText,setNewCommentText] = useState("")
     //value = newCommentText
   }
 
-  function handleNewCommentChange() {
+  function handleNewCommentChange(event:ChangeEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity("")
     setNewCommentText(event.target.value)
     //newCommentText que antes era "", agora é o conteudo da textarea
     //onSubmit,newCommentText irá para a função handleCreateNewComment
   }
 
-  function deleteComment(commentToDelete) {
+  function deleteComment(commentToDelete:string) {
     const commentWithoutDeletedOne = comments.filter(comment => {
       // true mantém , false tira
       //retorna a lista apenas com os elementos diferentes do qual eu quero deletar
