@@ -1,0 +1,27 @@
+.wrapper{
+    max-width: 70rem;
+    /* vertical e horizontal */
+    margin: 2rem auto;
+    /* auto p centralizar o elemento horizontalmente */
+    padding: 0 1rem;
+    /* é usado para criar uma estrutura geral da página com duas áreas principais:
+     uma barra lateral ( sidebar ) e o conteúdo principal ( main-content ).  */
+    display: grid; 
+    grid-template-columns: 256px 1fr;
+    /* tamanho das larguras das colunas(fr p tm flexivel,ocupando o restante) */
+    gap: 2rem;/* espaçamento entre colunas */
+    align-items: flex-start;/* alinhar pelo topo */
+}
+
+/* menor que 768,dispositivos mobile */
+@media (max-width : 768px) {
+    html{
+        /* do total que é 16px */
+        /* como as estilizações sao em rem, será adapatada */
+        font-size: 87.5%; 
+    }
+    .wrapper{
+        /* uma coluna que ocupa a todo espaço disponível */
+        grid-template-columns: 1fr ;
+    }
+}

@@ -1,0 +1,40 @@
+:root{ /*criação de variáveis */
+    --white: #fff;
+    --gray-100: #e1e1e6;
+    --gray-300: #c4c4cc;
+    --gray-400: #8d8d99;
+    --gray-600: #323238;
+    --gray-700: #29292e;
+    --gray-800: #202024;
+    --gray-900: #121214;
+    --green-300: #00B37E;
+    --green: #00875f;
+    --red-500: #F75A68
+}
+:focus{
+    /* no clique ficava com contorno branco */
+    outline: transparent;
+    box-shadow: 0 0 0 2px var(--green);
+/* 0: Este é o deslocamento horizontal da sombra. Um valor de 0 significa que a sombra não será deslocada horizontalmente.
+0: Este é o deslocamento vertical da sombra. Um valor de 0 significa que a sombra não será deslocada verticalmente.
+0: Este é o raio de desfoque da sombra. Um valor de 0 significa que a sombra não terá desfoque, ou seja, suas bordas serão nítidas.
+2px: Este é o tamanho da expansão da sombra. Um valor de 2px significa que a sombra será expandida uniformemente em todas as direções em 2 pixels. */
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: var(--gray-900);
+    color: var(--gray-300); /*cor do texto*/
+    -webkit-font-smoothing: antialiased; /*fontes finas e detalhadas*/
+
+}
+
+body, input, textarea, button{
+    font-family: 'Roboto' , sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
