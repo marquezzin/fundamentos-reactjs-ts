@@ -1,13 +1,16 @@
 import { Header } from './Components/Header.tsx';
-import {Post} from './Components/Post.tsx';
+import {Post,PostType} from './Components/Post.tsx';
 import styles from './App.module.css'
 import './global.css' //ja aplica a estilização
 import { Sidebar } from './Components/Sidebar.tsx';
 
+
 //author: {avatar_url:"", name:"" , role: ""}
 //publishedAt : Date
 //content : String
-const posts = [
+
+
+const posts: PostType[] = [
    {
       id:1,
       author:{
@@ -49,9 +52,7 @@ const posts = [
                 return(
                 <Post
                   key = {post.id} //evitar o erro no console, tem que ser única
-                  author = {post.author}
-                  content = {post.content}
-                  publishedAt = {post.publishedAt}
+                  post = {post}
                 />
 
                )
